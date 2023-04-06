@@ -28,6 +28,10 @@ Podczas urlopu macierzyńskiego :family_woman_girl_boy: , podjęłam decyzję o 
 ```
 #### przycisk "SIGN IN"
 ##### XPATH
+```
+//form//button[@type="submit"]
+//form//button[@type="submit" and ./span[contains(text(), SIGN-IN)]]
+```
 #### dropdown z wyborem języka
 ##### XPATH
 #### link do odzyskiwania hasła "remind password"
