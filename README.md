@@ -9,8 +9,23 @@ Podczas urlopu macierzyńskiego :family_woman_girl_boy: , podjęłam decyzję o 
 ### Lista elementów:
 #### pole do wpisywania "login"
 ##### XPATH
+
+```
+//*[@id="login"]
+//input[@id="login"]
+//input[@id="login" and @type="text"]
+//form//input[@id="login" and @type="text"]
+```
+
 #### pole do wpisywania "password"
 ##### XPATH
+```
+//*[@id="password"]
+//input[@id="password"]
+//input[@id="password" and @type="password"]
+//form//input[@id="password" and @type="password"]
+
+```
 #### przycisk "SIGN IN"
 ##### XPATH
 #### dropdown z wyborem języka
