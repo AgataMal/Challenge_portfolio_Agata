@@ -31,10 +31,22 @@ Podczas urlopu macierzyńskiego :family_woman_girl_boy: , podjęłam decyzję o 
 ```
 //form//button[@type="submit"]
 //form//button[@type="submit" and ./span[contains(text(), SIGN-IN)]]
+//form//child::button[@type="submit" and ./span[contains(text(), SIGN-IN)]]
 ```
 #### dropdown z wyborem języka
 ##### XPATH
+```
+//form//div[@role="button"]
+//form//child::div[@role="button"] 
+//form//child::div[@role="button" and @aria-haspopup="listbox"] 
+```
 #### link do odzyskiwania hasła "remind password"
 ##### XPATH
+```
+//form/div/div[1]/a
+//form//child::a
+//form//div//child::a
+//form//a[contains(text(), "Remind password") or contains(text(), "przypomnij hasło")]
+```
 
 
