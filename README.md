@@ -18,7 +18,6 @@ Podczas urlopu macierzyńskiego :family_woman_girl_boy: , podjęłam decyzję o 
 ```
 
 #### pole do wpisywania "password"
-##### XPATH
 ```
 //*[@id="password"]
 //input[@id="password"]

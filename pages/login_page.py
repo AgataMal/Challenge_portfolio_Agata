@@ -9,3 +9,11 @@ class LoginPage(BasePage):
     language_select_dropdown_xpath = "//form//child::div[@role=\"button\"]"
     def type_in_email(self, email):
         self.field_send_keys(self.login_field_xpath, email)
+    def type_in_password(self, password):
+        self.field_send_keys(self.password_field_xpath, password)
+    def click_sign_in(self):
+        self.click_on_the_element(self.sign_in_button_xpath)
+
+
+
+
