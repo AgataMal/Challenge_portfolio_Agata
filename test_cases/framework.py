@@ -31,8 +31,7 @@ class TestMediumPage(unittest.TestCase):
         self.driver.fullscreen_window()
         self.driver.implicitly_wait(IMPLICITLY_WAIT)
 
-    def get_page_title(self, url):
-        return self.driver.title
+
     def test_title_medium(self):
         actual_title = self.get_page_title('<https://medium.com/>;')
         expected_title = "Medium – Where good ideas find you."
