@@ -20,6 +20,7 @@ class TestLoginPage(unittest.TestCase):
     def test_log_into_the_system(self):
         user_login = LoginPage(self.driver)
         user_login.title_of_page() # zachodzi 1wsza asercja
+        user_login.assert_login_panel_title()
         user_login.type_in_email("user01@getnada.com")
         time.sleep(1)
         user_login.type_in_password("Test-1234")
