@@ -1,3 +1,5 @@
+import time
+
 from pages.base_page import BasePage
 
 class Dashboard(BasePage):
@@ -12,10 +14,14 @@ class Dashboard(BasePage):
     
     sign_out_en_button_xpath = left_menu_buttons_pattern.format("Sign out")
 
-    
-    add_player_button = "//div//a//span[text()='Dev team contact']"
-    
+    add_player_button = "//div//a//span[text()='Add player']"
+
     dev_team_contact_button = "//div//a//span[text()='Dev team contact']"
+
+    login_url = 'https://scouts-test.futbolkolektyw.pl/en'
+
+    expected_title = "Scouts panel"
+
 
     """
         User activity list links
@@ -27,5 +33,11 @@ class Dashboard(BasePage):
     users_activity_list_4 = users_activity_pattern.format("4")
     users_activity_list_5 = users_activity_pattern.format("5")
 
+    def title_of_page(self):
+        time.sleep(4)
+        assert self.get_page_title(self.login_url) == self.expected_title
+
+    def go_to_add_a_player(self):
+        self.click_on_the_element(self.add_player_button)
 
 
