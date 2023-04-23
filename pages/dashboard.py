@@ -34,7 +34,7 @@ class Dashboard(BasePage):
     users_activity_list_5 = users_activity_pattern.format("5")
 
     def title_of_page(self):
-        time.sleep(4)
+        self.wait_for_the_element_to_be_clickable(self.add_player_button)
         assert self.get_page_title(self.login_url) == self.expected_title
 
     def go_to_add_a_player(self):

@@ -23,11 +23,8 @@ class TestLoginPage(unittest.TestCase):
         user_login.title_of_page() # zachodzi 1wsza asercja
         user_login.assert_login_panel_title()
         user_login.type_in_email("user01@getnada.com")
-        time.sleep(1)
         user_login.type_in_password("Test-1234")
-        time.sleep(2)
         user_login.click_sign_in()
-        time.sleep(2)
         dashboard_page = Dashboard(self.driver)
         dashboard_page.title_of_page()
         dashboard_page.go_to_add_a_player()
