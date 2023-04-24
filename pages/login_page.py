@@ -10,7 +10,8 @@ class LoginPage(BasePage):
     language_select_dropdown_xpath = "//form//child::div[@role=\"button\"]"
     login_url = 'https://scouts-test.futbolkolektyw.pl/en'
     expected_title = "Scouts panel - sign in"
-
+    missing_pwd_xpath = "//span[text()=\"Please provide your password.\"]"
+    invalid_pwd_xpath = "//span[text()=\"Identifier or password invalid.\"]"
 
     def type_in_email(self, email):
         self.wait_for_the_element_to_be_clickable(self.login_field_xpath)
@@ -28,5 +29,8 @@ class LoginPage(BasePage):
     def assert_login_panel_title(self):
         self.assert_element_text(self.driver, self.login_panel_title, "Scouts Panel")
 
+    def assert_missing_password(self):
+        self.assert_element_text(self.driver, self.missing_pwd_xpath, "Please provide your password.")
 
-
+    def assert_invalid_password(self):
+        self.assert_element_text(self.driver, self.invalid_pwd_xpath, "Identifier or password invalid.")
