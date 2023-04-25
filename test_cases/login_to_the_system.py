@@ -23,11 +23,13 @@ class TestLoginPage(unittest.TestCase):
         login_page.assert_login_panel_title()
         login_page.type_in_email("user01@getnada.com")
         login_page.type_in_password("Test-1234")
+        login_page.screenshot("/tmp/before_login.png")
         login_page.click_sign_in()
         dashboard_page = Dashboard(self.driver)
         dashboard_page.title_of_page()
+        dashboard_page.screenshot("/tmp/dashboard_screen.png")
         dashboard_page.click_sign_out()
         login_page.title_of_page()
-
+        login_page.screenshot("/tmp/logout_screen.png")
 
 
