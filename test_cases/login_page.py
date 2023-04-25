@@ -31,6 +31,14 @@ class TestLoginPage(unittest.TestCase):
         login_page.click_sign_in()
         login_page.assert_invalid_password()
 
+    def test_select_language(self):
+        login_page = LoginPage(self.driver)
+        login_page.title_of_page()
+        login_page.click_on_select_language()
+        time.sleep(1)
+        login_page.click_on_polish_language()
+        time.sleep(2)
+        login_page.assert_translated()
     @classmethod
     def tearDown(self):
         self.driver.quit()

@@ -12,6 +12,9 @@ class LoginPage(BasePage):
     expected_title = "Scouts panel - sign in"
     missing_pwd_xpath = "//span[text()=\"Please provide your password.\"]"
     invalid_pwd_xpath = "//span[text()=\"Identifier or password invalid.\"]"
+    select_polish_language_xpath = "//li[@role=\"option\" and text()=\"Polski\"] "
+    sign_in_button_pl_xpath = "//form//button[@type=\"submit\" and ./span[contains(text(), ZALOGUJ)]]"
+    expected_title_pl = "Scouts panel - zaloguj"
 
     def type_in_email(self, email):
         self.wait_for_the_element_to_be_clickable(self.login_field_xpath)
@@ -34,3 +37,16 @@ class LoginPage(BasePage):
 
     def assert_invalid_password(self):
         self.assert_element_text(self.driver, self.invalid_pwd_xpath, "Identifier or password invalid.")
+
+    def click_on_select_language(self):
+        self.wait_for_the_element_to_be_clickable(self.language_select_dropdown_xpath)
+        self.click_on_the_element(self.language_select_dropdown_xpath)
+
+    def click_on_polish_language(self):
+        self.wait_for_the_element_to_be_clickable(self.select_polish_language_xpath)
+        self.click_on_the_element(self.select_polish_language_xpath)
+
+    def assert_translated(self):
+        assert self.get_page_title(self.login_url) == self.expected_title_pl
+
+
