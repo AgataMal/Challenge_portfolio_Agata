@@ -18,17 +18,16 @@ class TestLoginPage(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
     def test_log_into_the_system(self):
-        user_login = LoginPage(self.driver)
-        user_login.title_of_page() # zachodzi 1wsza asercja
-        user_login.assert_login_panel_title()
-        user_login.type_in_email("user01@getnada.com")
-        #time.sleep(1)
-        user_login.type_in_password("Test-1234")
-        #time.sleep(2)
-        user_login.click_sign_in()
-        #time.sleep(2)
+        login_page = LoginPage(self.driver)
+        login_page.title_of_page() # zachodzi 1wsza asercja
+        login_page.assert_login_panel_title()
+        login_page.type_in_email("user01@getnada.com")
+        login_page.type_in_password("Test-1234")
+        login_page.click_sign_in()
         dashboard_page = Dashboard(self.driver)
         dashboard_page.title_of_page()
+        dashboard_page.click_sign_out()
+        login_page.title_of_page()
 
 
 

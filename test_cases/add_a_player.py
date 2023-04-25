@@ -6,6 +6,7 @@ from utils.settings import DRIVER_PATH, IMPLICITLY_WAIT
 from pages.login_page import LoginPage
 from pages.dashboard import Dashboard
 from pages.add_a_player import AddPlayer
+from pages.edit_player_page import EditPlayerPage
 class TestLoginPage(unittest.TestCase):
     @classmethod
     def setUp(self):
@@ -19,6 +20,10 @@ class TestLoginPage(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
     def test_add_a_player(self):
+
+        player_name= "Jan"
+        player_surname = "Kowalski"
+
         login_page = LoginPage(self.driver)
         login_page.title_of_page() # zachodzi 1wsza asercja
         login_page.assert_login_panel_title()
@@ -31,12 +36,16 @@ class TestLoginPage(unittest.TestCase):
         time.sleep(2)
         add_player_page = AddPlayer(self.driver)
         add_player_page.title_of_page()
-        add_player_page.add_name("Jan")
-        add_player_page.add_surname("Kowalski")
+        add_player_page.add_name(player_name)
+        add_player_page.add_surname(player_surname)
         add_player_page.add_date("12.12.2000")
         add_player_page.add_main_position("pomocnik")
         add_player_page.click_submit()
         time.sleep(4)
+        edit_player_page = EditPlayerPage(self.driver)
+        edit_player_page.title_of_page(player_name, player_surname)
+
+
 
 
 

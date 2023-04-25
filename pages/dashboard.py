@@ -40,4 +40,7 @@ class Dashboard(BasePage):
     def go_to_add_a_player(self):
         self.click_on_the_element(self.add_player_button)
 
+    def click_sign_out(self):
+        self.wait_for_the_element_to_be_clickable(self.sign_out_en_button_xpath)
+        self.click_on_the_element(self.sign_out_en_button_xpath)
 
