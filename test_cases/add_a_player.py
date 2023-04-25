@@ -6,6 +6,7 @@ from utils.settings import DRIVER_PATH, IMPLICITLY_WAIT
 from pages.login_page import LoginPage
 from pages.dashboard import Dashboard
 from pages.add_a_player import AddPlayer
+from pages.edit_player_page import EditPlayerPage
 class TestLoginPage(unittest.TestCase):
     @classmethod
     def setUp(self):
@@ -19,21 +20,34 @@ class TestLoginPage(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
     def test_add_a_player(self):
-        user_login = LoginPage(self.driver)
-        user_login.title_of_page() # zachodzi 1wsza asercja
-        user_login.assert_login_panel_title()
-        user_login.type_in_email("user01@getnada.com")
-        time.sleep(1)
-        user_login.type_in_password("Test-1234")
-        time.sleep(2)
-        user_login.click_sign_in()
-        time.sleep(2)
+
+        player_name= "Jan"
+        player_surname = "Kowalski"
+
+        login_page = LoginPage(self.driver)
+        login_page.title_of_page() # zachodzi 1wsza asercja
+        login_page.assert_login_panel_title()
+        login_page.type_in_email("user01@getnada.com")
+        login_page.type_in_password("Test-1234")
+        login_page.click_sign_in()
         dashboard_page = Dashboard(self.driver)
         dashboard_page.title_of_page()
         dashboard_page.go_to_add_a_player()
         time.sleep(2)
         add_player_page = AddPlayer(self.driver)
         add_player_page.title_of_page()
+        add_player_page.add_name(player_name)
+        add_player_page.add_surname(player_surname)
+        add_player_page.add_date("12.12.2000")
+        add_player_page.add_main_position("pomocnik")
+        add_player_page.click_submit()
+        time.sleep(4)
+        edit_player_page = EditPlayerPage(self.driver)
+        edit_player_page.title_of_page(player_name, player_surname)
+
+
+
+
 
 
 
